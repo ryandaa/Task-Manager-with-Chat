@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from './supabaseClient';
+import Navbar from './components/Navbar';
+import TaskManager from './components/TaskManager';
+import About from './components/About';
+import NewTaskButton from './components/NewTaskButton';
 import './App.css';
+import './index.css';
 
 function App() {
   // State for storing the list of tasks and inputs for adding new tasks
@@ -50,48 +55,21 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Task Manager with Supabase</h1>
-        <div style={{ marginBottom: '20px' }}>
-          <input
-            type="text"
-            placeholder="Task Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Task Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <select value={status} onChange={(e) => setStatus(e.target.value)}>
-            <option value="Active">Active</option>
-            <option value="Snoozed">Snoozed</option>
-            <option value="Completed">Completed</option>
-          </select>
-          <button onClick={addTask}>Add Task</button>
-        </div>
-
-        {loading ? (
-          <p>Loading tasks...</p>
-        ) : (
-          <div>
-            {tasks.length > 0 ? (
-              tasks.map((task) => (
-                <div key={task.id} style={{ marginBottom: '20px' }}>
-                  <h3>{task.title}</h3>
-                  <p>{task.description}</p>
-                  <p>Status: {task.status}</p>
-                </div>
-              ))
-            ) : (
-              <p>No tasks available</p>
-            )}
-          </div>
-        )}
-      </header>
+    <div className="App min-h-screen">
+      <Navbar />
+      <TaskManager
+        tasks={tasks}
+        loading={loading}
+        title={title}
+        description={description}
+        status={status}
+        setTitle={setTitle}
+        setDescription={setDescription}
+        setStatus={setStatus}
+        addTask={addTask}
+      />
+      <About />
+      <NewTaskButton />
     </div>
   );
 }
