@@ -31,13 +31,13 @@ const TaskManager = () => {
       <div className="flex space-x-4 mb-6">
         <button
           onClick={() => setStatusFilter('Active')}
-          className={`px-4 py-2 rounded-xl ${statusFilter === 'Active' ? 'bg-green-200' : 'bg-gray-200'} hover:bg-green-200`}
+          className={`px-4 py-2 rounded-xl ${statusFilter === 'Active' ? 'bg-green-300 text-white' : 'bg-gray-200'} hover:bg-green-300 hover:text-white`}
         >
           Active
         </button>
         <button
           onClick={() => setStatusFilter('Snoozed')}
-          className={`px-4 py-2 rounded-xl ${statusFilter === 'Snoozed' ? 'bg-orange-200' : 'bg-gray-200'} hover:bg-orange-200`}
+          className={`px-4 py-2 rounded-xl ${statusFilter === 'Snoozed' ? 'bg-orange-300 text-white' : 'bg-gray-200'} hover:bg-orange-300 hover:text-white`}
         >
           Snoozed
         </button>

@@ -24,9 +24,9 @@ const TaskCard = ({ task }) => {
   const getStatusColor = () => {
     switch (task.status) {
       case 'Active':
-        return 'bg-green-200';
+        return 'bg-green-300';
       case 'Snoozed':
-        return 'bg-orange-200';
+        return 'bg-orange-300';
       case 'Completed':
         return 'bg-blue-500';
       default:
@@ -45,9 +45,10 @@ const TaskCard = ({ task }) => {
           </div>
         )}
       </div>
-      <h3 className="font-bold mb-2">{task.title}</h3>
-      <p>Status: {task.status}</p>
-      <div className={`h-[10%] w-full absolute bottom-0 left-0 rounded-b-2xl ${getStatusColor()}`}></div>
+      <h3 className="font-bold mb-6">{task.title}</h3> {/* Increased margin-bottom to add more space */}
+      <div className={`h-[25%] w-full absolute bottom-0 left-0 rounded-b-2xl ${getStatusColor()} flex items-center`}>
+        <p className="ml-4 text-sm text-white">{task.status}</p>
+      </div>
     </div>
   );
 };
