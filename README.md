@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Task Manager Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Task Manager project! Follow these instructions to get your development environment set up.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+Before starting, make sure you have the following installed on your system:
 
-### `npm start`
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/get-npm) or [Yarn](https://yarnpkg.com/) as the package manager
+- [Supabase](https://supabase.io/) account (for database services)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation Steps
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Clone the Repository**
 
-### `npm test`
+   ```sh
+   git clone <your-repository-url>
+   cd task-manager-project
+Install Dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you are using npm:
 
-### `npm run build`
+sh
+Copy code
+npm install
+Or if you are using Yarn:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+sh
+Copy code
+yarn install
+Configure Environment Variables
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Create a .env file in the root directory of the project and add the following variables:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+env
+Copy code
+REACT_APP_SUPABASE_URL=your_supabase_url
+REACT_APP_SUPABASE_KEY=your_supabase_anon_key
+Replace your_supabase_url and your_supabase_anon_key with the credentials from your Supabase account.
 
-### `npm run eject`
+Start the Development Server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To start the server, run:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+sh
+Copy code
+npm start
+Or if you are using Yarn:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+sh
+Copy code
+yarn start
+This command will start the application, and it should be accessible at http://localhost:3000 in your browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Build for Production
 
-## Learn More
+To create an optimized production build, run:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+sh
+Copy code
+npm run build
+Or with Yarn:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+sh
+Copy code
+yarn build
+The production-ready files will be generated in the build folder.
 
-### Code Splitting
+Common Issues
+Port Already in Use: If you encounter an error about port 3000 being in use, you can specify a different port:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+sh
+Copy code
+PORT=3001 npm start
+Missing Environment Variables: Make sure your .env file is correctly configured with the required Supabase keys.
 
-### Analyzing the Bundle Size
+Additional Notes
+Make sure to set up your Supabase database properly to match the tables expected in the project (e.g., Tasks, TaskAssignments, TaskMessages, Users).
+The project may use specific packages as listed in requirements.txt, please refer to that to ensure compatibility.
+Contributing
+If you want to contribute, feel free to fork the repository, make changes, and submit a pull request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+License
+This project is licensed under the MIT License.
