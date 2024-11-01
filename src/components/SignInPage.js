@@ -19,7 +19,7 @@ const SignInPage = () => {
         // User does not exist, so create a new user
         const { data: newUser, error: insertError } = await supabase
           .from('Users')
-          .insert([{ name, email }])
+          .insert([{ name, email, created_at: new Date().toISOString() }])
           .single();
 
         if (insertError) {
