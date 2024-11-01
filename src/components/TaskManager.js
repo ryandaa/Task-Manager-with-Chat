@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import TaskCard from './TaskCard';
+import TaskCard from './task components/TaskCard';
 import { supabase } from '../supabaseClient';
 
 const TaskManager = () => {
@@ -10,13 +10,52 @@ const TaskManager = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       setLoading(true);
-      const { data, error } = await supabase.from('Tasks').select('*');
-
-      if (error) {
-        console.error('Error fetching tasks:', error);
-      } else {
-        setTasks(data);
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (!user) {
+        console.error('User not logged in');
+        setLoading(false);
+        return;
       }
+
+      try {
+        // Step 1: Fetch Task IDs assigned to the logged-in user
+        const { data: assignments, error: assignmentError } = await supabase
+          .from('TaskAssignments')
+          .select('task_id')
+          .eq('user_id', user.id);
+
+        if (assignmentError) {
+          console.error('Error fetching task assignments:', assignmentError);
+          setLoading(false);
+          return;
+        }
+
+        const taskIds = assignments.map((assignment) => assignment.task_id);
+
+        if (taskIds.length === 0) {
+          // No tasks assigned to the user
+          setTasks([]);
+          setLoading(false);
+          return;
+        }
+
+        // Step 2: Fetch tasks using the fetched task IDs
+        const { data: tasksData, error: tasksError } = await supabase
+          .from('Tasks')
+          .select('*')
+          .in('id', taskIds);
+
+        if (tasksError) {
+          console.error('Error fetching tasks:', tasksError);
+          setTasks([]);
+        } else {
+          setTasks(tasksData);
+        }
+      } catch (err) {
+        console.error('Unexpected error fetching tasks:', err);
+        setTasks([]);
+      }
+
       setLoading(false);
     };
 
@@ -55,7 +94,7 @@ const TaskManager = () => {
           ) : (
             filteredTasks.map(task => (
               <div key={task.id} className="flex-shrink-0 w-64">
-                <TaskCard task={task} />
+                <TaskCard task={task} setTasks={setTasks} />
               </div>
             ))
           )}
