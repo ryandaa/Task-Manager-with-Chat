@@ -17,69 +17,84 @@ Before starting, make sure you have the following installed on your system:
    ```sh
    git clone <your-repository-url>
    cd task-manager-project
-Install Dependencies
+   ```
 
-If you are using npm:
+2. **Install Dependencies**
 
-sh
-Copy code
-npm install
-Or if you are using Yarn:
+   If you are using npm:
+   
+   ```sh
+   npm install
+   ```
+   
+   Or if you are using Yarn:
+   
+   ```sh
+   yarn install
+   ```
 
-sh
-Copy code
-yarn install
-Configure Environment Variables
+3. **Configure Environment Variables**
 
-Create a .env file in the root directory of the project and add the following variables:
+   Create a `.env` file in the root directory of the project and add the following variables:
 
-env
-Copy code
-REACT_APP_SUPABASE_URL=your_supabase_url
-REACT_APP_SUPABASE_KEY=your_supabase_anon_key
-Replace your_supabase_url and your_supabase_anon_key with the credentials from your Supabase account.
+   ```env
+   REACT_APP_SUPABASE_URL=your_supabase_url
+   REACT_APP_SUPABASE_KEY=your_supabase_anon_key
+   ```
 
-Start the Development Server
+   Replace `your_supabase_url` and `your_supabase_anon_key` with the credentials from your Supabase account.
 
-To start the server, run:
+4. **Start the Development Server**
 
-sh
-Copy code
-npm start
-Or if you are using Yarn:
+   To start the server, run:
 
-sh
-Copy code
-yarn start
-This command will start the application, and it should be accessible at http://localhost:3000 in your browser.
+   ```sh
+   npm start
+   ```
+   
+   Or if you are using Yarn:
+   
+   ```sh
+   yarn start
+   ```
 
-Build for Production
+   This command will start the application, and it should be accessible at `http://localhost:3000` in your browser.
 
-To create an optimized production build, run:
+5. **Build for Production**
 
-sh
-Copy code
-npm run build
-Or with Yarn:
+   To create an optimized production build, run:
 
-sh
-Copy code
-yarn build
-The production-ready files will be generated in the build folder.
+   ```sh
+   npm run build
+   ```
+   
+   Or with Yarn:
+   
+   ```sh
+   yarn build
+   ```
 
-Common Issues
-Port Already in Use: If you encounter an error about port 3000 being in use, you can specify a different port:
+   The production-ready files will be generated in the `build` folder.
 
-sh
-Copy code
-PORT=3001 npm start
-Missing Environment Variables: Make sure your .env file is correctly configured with the required Supabase keys.
+## Common Issues
 
-Additional Notes
-Make sure to set up your Supabase database properly to match the tables expected in the project (e.g., Tasks, TaskAssignments, TaskMessages, Users).
-The project may use specific packages as listed in requirements.txt, please refer to that to ensure compatibility.
-Contributing
+- **Port Already in Use**: If you encounter an error about port 3000 being in use, you can specify a different port:
+  
+  ```sh
+  PORT=3001 npm start
+  ```
+
+- **Missing Environment Variables**: Make sure your `.env` file is correctly configured with the required Supabase keys.
+
+## Additional Notes
+
+- Make sure to set up your Supabase database properly to match the tables expected in the project (e.g., `Tasks`, `TaskAssignments`, `TaskMessages`, `Users`).
+- The project may use specific packages as listed in `requirements.txt`, please refer to that to ensure compatibility.
+
+## Contributing
+
 If you want to contribute, feel free to fork the repository, make changes, and submit a pull request.
 
-License
+## License
+
 This project is licensed under the MIT License.
