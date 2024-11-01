@@ -15,7 +15,7 @@ Before starting, make sure you have the following installed on your system:
 1. **Clone the Repository**
 
    ```sh
-   git clone <your-repository-url>
+   git clone https://github.com/ryandaa/Task-Manager-with-Chat
    cd task-manager-project
    ```
 
