@@ -1,12 +1,3 @@
-// Setting up your backend functions is an essential part of building your app. Since you're using Node.js and Express for the backend, let me guide you on how to create these API endpoints step-by-step. I'll also explain what each one does and how you can implement them.
-
-// First, set up Express if you haven't already:
-
-// Run the following command to install Express:
-// npm install express
-
-// Create a file named 'server.js' or 'index.js' to set up your server.
-
 const express = require('express');
 const { createClient } = require('@supabase/supabase-js');
 require('dotenv').config();
@@ -164,9 +155,3 @@ app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
 
-// ### Explanation ###
-// - **Task CRUD Operations**: These endpoints allow you to create, read, update, and delete tasks.
-// - **Fetching Task Messages**: This endpoint (`GET /tasks/:taskId/messages`) fetches all messages related to a specific task.
-// - **Creating New Messages**: This endpoint (`POST /tasks/:taskId/messages`) allows users to add messages to specific tasks.
-// - **Updating Task Status**: (`PATCH /tasks/:id/status`) allows you to change the status of a task (e.g., Active, Snoozed, Completed).
-// - **Task Assignment Management**: (`POST /tasks/:taskId/assign`) assigns a specific user to a task, storing it in the `TaskAssignments` table.
